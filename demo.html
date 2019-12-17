@@ -20,7 +20,7 @@
           if($('#n2').val()==0)
             window.alert("DIVIDING BY ZERO!!!");
           else
-            $('#res').html(div($('#n1').val(), $('#n2').val(), $('#r').val()));
+            $('#res').html(div($('#n1').val(), $('#n2').val(), $('#r').val(), "<span style=\"text-decoration: overline\">", "</span>"));
           return false;
         });
         $('#n1').on("keyup change", function(event) {

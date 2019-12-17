@@ -1,5 +1,5 @@
 # Advanced-Division
-Divide two numbers using recurring decimals
+### Divide two numbers using recurring decimals
 
 Syntax:
 advdiv(n1, n2, r, rstr1, rstr2)
@@ -8,3 +8,5 @@ advdiv(n1, n2, r, rstr1, rstr2)
 * r - recurring decimals of the first number
 * rstr1 - string of the recursion beginning
 * rstr2 - string of the recursion end
+
+Here is demo: <https://ratajs.github.io/Advanced-Division/demo.html>

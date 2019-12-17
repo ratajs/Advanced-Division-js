@@ -2,7 +2,7 @@
 ### Divide two numbers using recurring decimals
 
 Syntax:
-advdiv(n1, n2, r, rstr1, rstr2)
+<code>advdiv(n1, n2, r, rstr1, rstr2)</code>
 * n1 - first number
 * n2 - second number
 * r - recurring decimals of the first number

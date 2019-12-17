@@ -1,4 +1,4 @@
-function div(n1, n2, r) {
+function div(n1, n2, r, rstr1, rstr2) {
   if(n2==0)
     return false;
   var sign = (parseInt(n1)<=0 ? parseInt(n2)>0 : parseInt(n2)<0) ? "-" : "";
@@ -46,7 +46,7 @@ function div(n1, n2, r) {
     if(newcarry==0 && r==0)
       return sign + res;
     if(carries.indexOf(newcarry)>-1)
-      return new Array(sign, res.slice(0, doti+carries.indexOf(newcarry)), "<span style=\"text-decoration: overline\">", res.slice(doti+carries.indexOf(newcarry)), "</span>").join("");
+      return new Array(sign, res.slice(0, doti+carries.indexOf(newcarry)), rstr1, res.slice(doti+carries.indexOf(newcarry)), rstr2).join("");
     res+= Math.floor((10*carry+parseInt(n1s[i]))/n2).toString();
     carry = newcarry;
     if(over)

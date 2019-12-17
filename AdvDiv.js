@@ -1,7 +1,7 @@
 function div(n1, n2, r, rstr1, rstr2) {
   if(n2==0)
     return false;
-  var sign = (parseInt(n1)<=0 ? parseInt(n2)>0 : parseInt(n2)<0) ? "-" : "";
+  var sign = (parseInt(n1)<0 ? parseInt(n2)>=0 : parseInt(n2)<0) ? "-" : "";
   n1 = Math.abs(n1);
   n2 = Math.abs(n2);
   r = Math.abs(r);

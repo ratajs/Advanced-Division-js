@@ -1,4 +1,4 @@
-function div(n1, n2, r, rstr1, rstr2) {
+function advdiv(n1, n2, r, rstr1, rstr2) {
   if(n2==0)
     return false;
   var sign = (parseInt(n1)<0 ? parseInt(n2)>=0 : parseInt(n2)<0) ? "-" : "";

@@ -5,6 +5,10 @@ function div(n1, n2, r, rstr1, rstr2) {
   n1 = Math.abs(n1);
   n2 = Math.abs(n2);
   r = Math.abs(r);
+  if(n1.toString().indexOf(".")>-1) {
+    n2*= Math.pow(10, n1.toString().length - n1.toString().indexOf(".") - 1);
+    n1*= Math.pow(10, n1.toString().length - n1.toString().indexOf(".") - 1);
+  };
   var res = "";
   var n1s = n1.toString().split("");
   var n1s1 = n1.toString().split(".")[0].split("");
@@ -12,8 +16,7 @@ function div(n1, n2, r, rstr1, rstr2) {
   var newcarry = 0;
   var over = false;
   for(var i = 0; i<n1s1.length; i++) {
-    if(Math.floor((10*carry+parseInt(n1s1[i]))/n2)!=0 || res.length>0)
-      res+= Math.floor((10*carry+parseInt(n1s1[i]))/n2).toString();
+    res+= Math.floor((10*carry+parseInt(n1s1[i]))/n2).toString();
     carry = (10*carry+parseInt(n1s1[i])) - n2 * Math.floor((10*carry+parseInt(n1s1[i]))/n2);
   };
   if(res=="") {
@@ -32,21 +35,12 @@ function div(n1, n2, r, rstr1, rstr2) {
     newcarry = (10*carry+parseInt(n1s[i])) - n2 * Math.floor((10*carry+parseInt(n1s[i]))/n2);
     if((newcarry==0 && r==0) || carries.indexOf(newcarry)>-1) {
       res+= Math.floor((10*carry+parseInt(n1s[i]))/n2).toString();
-      if(res.charAt(res.length-1)=="0") {
-        var ress = res.split("");
-        ress.pop();
-        res = ress.join("");
-      };
-      if(res.charAt(res.length-1)==".") {
-        var ress = res.split("");
-        ress.pop();
-        res = ress.join("");
-      };
     };
     if(newcarry==0 && r==0)
-      return sign + res;
-    if(carries.indexOf(newcarry)>-1)
-      return new Array(sign, res.slice(0, doti+carries.indexOf(newcarry)), rstr1, res.slice(doti+carries.indexOf(newcarry)), rstr2).join("");
+      return (sign + res).replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "");
+    if(carries.indexOf(newcarry)>-1) {
+      return new Array(sign, res.slice(0, doti+carries.indexOf(newcarry)+1), rstr1, res.slice(doti+carries.indexOf(newcarry)+1), rstr2).join("").replace(/^0+/gm, "").replace(/^\./, "0.");
+    };
     res+= Math.floor((10*carry+parseInt(n1s[i]))/n2).toString();
     carry = newcarry;
     if(over)

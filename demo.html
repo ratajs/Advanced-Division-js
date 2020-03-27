@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Advanced Division</title>
   </head>
   <body>
     <form>
@@ -23,7 +23,7 @@
           if($('#n2').val()==0)
             window.alert("DIVIDING BY ZERO!!!");
           else
-            $('#res').html(div($('#n1').val(), $('#n2').val(), $('#r').val(), "<span style=\"text-decoration: overline\">", "</span>"));
+            $('#res').html(advdiv($('#n1').val(), $('#n2').val(), $('#r').val(), "<span style=\"text-decoration: overline\">", "</span>"));
           return false;
         });
         $('#n1').on("keyup change", function(event) {

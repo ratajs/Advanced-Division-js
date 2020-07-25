@@ -9,6 +9,10 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
     n2*= Math.pow(10, n1.toString().length - n1.toString().indexOf(".") - 1);
     n1*= Math.pow(10, n1.toString().length - n1.toString().indexOf(".") - 1);
   };
+  if(n2.toString().indexOf(".")>-1) {
+    n1*= Math.pow(10, n2.toString().length - n2.toString().indexOf(".") - 1);
+    n2*= Math.pow(10, n2.toString().length - n2.toString().indexOf(".") - 1);
+  };
   var res = "";
   var n1s = n1.toString().split("");
   var n1s1 = n1.toString().split(".")[0].split("");

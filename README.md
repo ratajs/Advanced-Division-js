@@ -1,6 +1,10 @@
 # Advanced-Division
 ### Divide two numbers using recurring decimals
 
+Include code:
+
+  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division@98dae06157485b00a5880768d6c4c10df76da0c6/AdvDiv.min.js" type="text/javascript" integrity="sha384-S67Bchi6wnA3Pfzp2PXR2aj8ZZyoiFSOWsAzAqe+0gBHuSlkCiHmujp2lQLZZL6+" crossorigin="anonymous"></script></code>
+
 Syntax:
 <code>advdiv(n1, n2, r, rstr1, rstr2)</code>
 * n1 – first number

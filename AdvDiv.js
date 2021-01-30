@@ -15,7 +15,7 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
   var n1string = n1.toString();
   var n2string = n2.toString();
   while(n1string.indexOf(".")>-1 || n2string.indexOf(".")>-1) {
-    n1string = (parseInt(times10(n1string)) + parseInt(r.toString()[0])).toString();
+    n1string = (parseFloat(times10(n1string)) + parseFloat(r.toString()[0])).toString();
     n2string = times10(n2string);
     if(r.toString().length > 1)
       r = parseInt(r.toString().slice(1)+r.toString()[0])

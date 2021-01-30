@@ -15,8 +15,10 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
   var n1string = n1.toString();
   var n2string = n2.toString();
   while(n1string.indexOf(".")>-1 || n2string.indexOf(".")>-1) {
-    n1string = times10(n1string);
+    n1string = (parseInt(times10(n1string)) + parseInt(r.toString()[0])).toString();
     n2string = times10(n2string);
+    if(r.toString().length > 1)
+      r = parseInt(r.toString().slice(1)+r.toString()[0])
   };
   n1 = parseInt(n1string);
   n2 = parseInt(n2string);
@@ -28,7 +30,7 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
   var over = false;
   for(var i = 0; i < n1s1.length; i++) {
     res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s1[i])) / n2).toString();
-    carry = (parseInt(times10(carry.toString())) + parseInt(n1s1[i])) - n2 * Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s1[i]))/n2);
+    carry = (parseInt(times10(carry.toString())) + parseInt(n1s1[i])) - n2 * Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s1[i])) / n2);
   };
   if(res=="") {
     res = "0";
@@ -52,9 +54,9 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
       res+= Math.floor((parseInt(times10(carry.toString()))+parseInt(n1s[i]))/n2).toString();
     };
     if(newcarry==0 && r==0)
-      return (sign + res).replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "");
+      return sign+res.replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "");
     if(carries.filter((v, k) => (k % r.toString().length)==((i - doti) % r.toString().length)).indexOf(newcarry) > -1)
-      return new Array(sign, res.slice(0, doti+carries.indexOf(newcarry) + 1), rstr1, res.slice(doti+carries.indexOf(newcarry) + 1), rstr2).join("").replace(/^0+/gm, "").replace(/^\./, "0.");
+      return sign+(new Array(res.slice(0, doti+carries.indexOf(newcarry) + 1), rstr1, res.slice(doti+carries.indexOf(newcarry) + 1), rstr2).join("").replace(/^0+/gm, "").replace(/^\./, "0."));
     res+= Math.floor((parseInt(times10(carry.toString()))+parseInt(n1s[i])) / n2).toString();
     carry = newcarry;
     if(over)

@@ -3,7 +3,7 @@
 
 Include code:
 
-  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division@a5c27f48ca8596aaaf1fdd18613eb8233989b104/AdvDiv.min.js" type="text/javascript" integrity="sha384-CxuHpL7UUYMDs0GjQmsgycqwY6jBs0BshTiFrgHmPvJbjPVjSAll44Hv6dSH5sxw" crossorigin="anonymous"></script></code>
+  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division@243807e4bde864decf4d18a11c9e836c5af88473/AdvDiv.min.js" type="text/javascript" integrity="sha384-rqDsKd8JKRuCuEwYL4QaHkMCQAbJDD7n7gLC2yXY+y6M8H+ihg4RambCHkHPiWL/" crossorigin="anonymous"></script></code>
 
 Syntax:
 <code>advdiv(n1, n2, r, rstr1, rstr2)</code>

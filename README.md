@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/ratajs/Advanced-Division/master/icon.svg)
+
 # Advanced-Division
 ### Divide two numbers using recurring decimals
 
@@ -13,4 +15,7 @@ Syntax:
 * rstr1 – string of the recursion beginning
 * rstr2 – string of the recursion end
 
-Here is a demo: <https://ratajs.github.io/Advanced-Division/demo.html>
+Here is an online demo: <https://ratajs.github.io/Advanced-Division/demo.html>
+
+The demo app is also available for download for [Android](https://github.com/ratajs/Advanced-Division/releases/download/1.0-Android/Advanced.Division.apk), [Windows](https://github.com/ratajs/Advanced-Division/releases/download/1.0-Win/Advanced.Division.exe) and [Linux](https://github.com/ratajs/Advanced-Division/releases/download/1.0-Linux/Advanced.Division.tar.gz).
+You can also download the demo HTML.

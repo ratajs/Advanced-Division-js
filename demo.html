@@ -189,6 +189,9 @@
 				",",
 				"r",
 				"/",
+				"∶",
+				"∕",
+				"=",
 				"ArrowLeft",
 				"ArrowRight",
 				"Home",
@@ -309,10 +312,13 @@
 						break;
 					case "Tab":
 					case "/":
+					case "∶":
+					case "∕":
 						document.getElementById("n1").className = (document.getElementById("n1").className=="focus") ? "" : "focus";
 						document.getElementById("n2").className = (document.getElementById("n2").className=="focus") ? "" : "focus";
 						window.caret = document.getElementsByClassName("focus")[0].innerText.length;
 						break;
+					case "=":
 					case "Enter":
 						submit(); break;
 					case "Escape":

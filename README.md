@@ -17,7 +17,7 @@ Syntax:
 
 Here is an online demo: <https://ratajs.github.io/Advanced-Division/demo.html>
 
-The demo app is also available for download for [Android](https://sourceforge.net/projects/advanced-division/files/Advanced-Division.apk/download), [Windows](https://sourceforge.net/projects/advanced-division/files/Advanced-Division.exe/download) and [Linux](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWJS-Linux.tar.gz/download) on SourceForge.
+The demo app is also available for download for [Android](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Cordova.apk/download), [Windows](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs.exe/download) and [Linux](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download) on SourceForge.
 You can also download the demo HTML.
 
 [![Download Advanced Division](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/advanced-division/files/latest/download)

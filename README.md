@@ -15,7 +15,7 @@ Syntax:
 * rstr1 – string of the recursion beginning
 * rstr2 – string of the recursion end
 
-Here is an online demo: <https://ratajs.github.io/Advanced-Division/demo.html>
+Here is an online demo: <http://advdiv.ratajs.cz/demo.html>
 
 The demo app is also available for download for [Android](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Cordova.apk/download), [Windows](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs.exe/download) and [Linux](https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download) on SourceForge.
 You can also download the demo HTML.

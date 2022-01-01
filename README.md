@@ -21,3 +21,6 @@ The demo app is also available for download for [Android](https://sourceforge.ne
 You can also download the demo HTML.
 
 [![Download Advanced Division](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/advanced-division/files/latest/download)
+
+
+I also created a [Python version](https://github.com/ratajs/Advanced-Division-py) and a [Kirigami app](https://invent.kde.org/ratajsk/advanced-division) which is available on SourceForge as well.

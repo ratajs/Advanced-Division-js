@@ -5,7 +5,7 @@
 
 Include code:
 
-  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division@6862459b6459b3349507f886deb095cf1fcc1750/AdvDiv.min.js" type="text/javascript" integrity="sha384-tQTSXX9pdW0VHrXPszObYLdpZe2rRG82Kw2E7dJ8jOfaBSaP27AzQwNAgGdj3GdS" crossorigin="anonymous"></script></code>
+  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division@48b9c12242cf03a96c66202ccb86ff8978c1464c/AdvDiv.min.js" type="text/javascript" integrity="sha384-TYYkguXDyRifAz7SdRE79iRgUBKX2D93h/7jMxE+Y4N+qfHmCF/JKeRwZ3ODANVq" crossorigin="anonymous"></script></script></code>
 
 Syntax:
 <code>advdiv(n1, n2, r, rstr1, rstr2)</code>

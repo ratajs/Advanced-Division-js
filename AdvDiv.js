@@ -1,8 +1,8 @@
 function advdiv(n1, n2, r, rstr1, rstr2) {
 	if(n2==0)
 		return false;
-  if(!r)
-    r = 0;
+	if(!r)
+		r = 0;
 	var sign = (parseFloat(n1) < 0 ? parseFloat(n2) >= 0 : parseFloat(n2) < 0) ? "-" : "";
 	n1 = Math.abs(n1);
 	n2 = Math.abs(n2);

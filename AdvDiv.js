@@ -60,19 +60,21 @@ function advdiv(n1, n2, r, rstr1, rstr2) {
 			n1s.push(parseInt(r.toString().split('')[(rcount) % r.toString().length]));
 		};
 		newcarry = (parseInt(times10(carry.toString())) + parseInt(n1s[i])) - n2 * Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[i])) / n2);
-		if(over && newcarry==0 && r==0) {
-			res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[i])) / n2).toString();
-			return sign+res.replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "");
-		};
-		for(x = 0; x < carries.length; x++) {
-			if(over && carries[x]==newcarry && (x % r.toString().length)==((rcount + 1) % r.toString().length)) {
+		if(over) {
+			if(newcarry==0 && r==0) {
 				res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[i])) / n2).toString();
-				result = sign + ((res.slice(0, i - rcount + x)+"["+res.slice(i - rcount + x)+"]").replace(/^0+/gm, "").replace(/^\./, "0."));
-				if(result[result.indexOf("[") - 1]==result[result.indexOf("]") - 1])
-					result = result.slice(0, result.indexOf("[") - 1)+"["+result[result.indexOf("[") - 1]+result.slice(result.indexOf("[") + 1, result.indexOf("]") - 1)+"]";
-				if(result.indexOf("]")==result.indexOf("[") + 3 && result[result.indexOf("[") + 1]==result[result.indexOf("]") + 2])
-					result = result.slice(0, result.indexOf("[") + 1)+"]";
-				return result.replace("[", rstr1).replace("]", rstr2);
+				return sign+res.replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "");
+			};
+			for(x = 0; x < carries.length; x++) {
+				if(over && carries[x]==newcarry && (x % r.toString().length)==((rcount + 1) % r.toString().length)) {
+					res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[i])) / n2).toString();
+					result = sign + ((res.slice(0, i - rcount + x)+"["+res.slice(i - rcount + x)+"]").replace(/^0+/gm, "").replace(/^\./, "0."));
+					if(result[result.indexOf("[") - 1]==result[result.indexOf("]") - 1])
+						result = result.slice(0, result.indexOf("[") - 1)+"["+result[result.indexOf("[") - 1]+result.slice(result.indexOf("[") + 1, result.indexOf("]") - 1)+"]";
+					if(result.indexOf("]")==result.indexOf("[") + 3 && result[result.indexOf("[") + 1]==result[result.indexOf("[") + 2])
+						result = result.slice(0, result.indexOf("[") + 2)+"]";
+					return result.replace("[", rstr1).replace("]", rstr2);
+				};
 			};
 		};
 		res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[i])) / n2).toString();

@@ -53,11 +53,11 @@ function advdiv(n1, n2, minstr, decstr, rstr1, rstr2) {
 
 	r1 = (n1.indexOf(rstr1) > -1) ? (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n1.slice(n1.indexOf(".") + 1)) || ["0", "0"])[1] : "0";
 	if(r1!="0")
-		n1 = n1.slice(0, n1.indexOf(".") + n1.slice(n1.indexOf(".") + 1).indexOf(rstr1));
+		n1 = n1.slice(0, n1.indexOf(".") + n1.slice(n1.indexOf(".") + 1).indexOf(rstr1) + 1);
 	n1 = n1.replace(/^0+/, "0").replace(r1=="0" ? /\.0*$/ : /\.*$/, "");
 	r2 = (n2.indexOf(rstr1) > -1) ? (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n2.slice(n2.indexOf(".") + 1)) || ["0", "0"])[1] : "0";
 	if(r2!="0")
-		n2 = n2.slice(0, n2.indexOf(".") + n2.slice(n2.indexOf(".") + 1).indexOf(rstr1));
+		n2 = n2.slice(0, n2.indexOf(".") + n2.slice(n2.indexOf(".") + 1).indexOf(rstr1) + 1);
 	n2 = n2.replace(/^0+/, "0").replace(r2=="0" ? /\.0*$/ : /\.*$/, "");
 
 

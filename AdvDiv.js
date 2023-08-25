@@ -12,16 +12,18 @@ function advdiv(n1, n2, minstr, decstr, rstr1, rstr2) {
 
 	RegExp.escape = str => str.replace(/[-\\^$*+?.()|[\]{}]/g, "\\$&");
 
-	if(!minstr && minstr!=="")
+	if(typeof minstr=="undefined")
 		minstr = "-";
-	if(!decstr && decstr!=="")
+	if(typeof decstr=="undefined")
 		decstr = ".";
-	if(!rstr1 && rstr1!=="")
+	if(typeof rstr1=="undefined") {
 		rstr1 = "[";
-	if(!rstr2 && rstr2!=="")
 		rstr2 = "]";
+	};
+	if(typeof rstr2=="undefined")
+		rstr2 = "";
 
-	if(n1.length==0 || n2.length==0 || /^\d*$/.test(minstr) || /^\d*$/.test(decstr) || /^\d*$/.test(rstr1) || /^\d*$/.test(rstr2))
+	if(n1.length==0 || n2.length==0 || /^\d*$/.test(minstr) || /^\d*$/.test(decstr) || /^\d*$/.test(rstr1) || /^\d+$/.test(rstr2))
 		return false;
 
 	nre = new RegExp("^("+RegExp.escape(minstr)+")?\\d*("+RegExp.escape(decstr)+"\\d*("+RegExp.escape(rstr1)+"\\d*"+RegExp.escape(rstr2)+")?)?$");
@@ -47,12 +49,16 @@ function advdiv(n1, n2, minstr, decstr, rstr1, rstr2) {
 		n1 = "0"+n1;
 
 	if(n2[0]==".")
-		n1 = "0"+n2;
+		n2 = "0"+n2;
 
-	r1 = (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n1) || ["0", "0"])[1];
-	n1 = n1.split(rstr1)[0].replace(/^0+/, "0").replace(r1=="0" ? /\.0*$/ : /\.*/, "");
-	r2 = (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n2) || ["0", "0"])[1];
-	n2 = n2.split(rstr1)[0].replace(/^0+/, "0").replace(r2=="0" ? /\.0*$/ : /\.*/, "");
+	r1 = (n1.indexOf(rstr1) > -1) ? (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n1.slice(n1.indexOf(".") + 1)) || ["0", "0"])[1] : "0";
+	if(r1!="0")
+		n1 = n1.slice(0, n1.indexOf(".") + n1.slice(n1.indexOf(".") + 1).indexOf(rstr1));
+	n1 = n1.replace(/^0+/, "0").replace(r1=="0" ? /\.0*$/ : /\.*$/, "");
+	r2 = (n2.indexOf(rstr1) > -1) ? (new RegExp(RegExp.escape(rstr1)+"(.+)"+RegExp.escape(rstr2)).exec(n2.slice(n2.indexOf(".") + 1)) || ["0", "0"])[1] : "0";
+	if(r2!="0")
+		n2 = n2.slice(0, n2.indexOf(".") + n2.slice(n2.indexOf(".") + 1).indexOf(rstr1));
+	n2 = n2.replace(/^0+/, "0").replace(r2=="0" ? /\.0*$/ : /\.*$/, "");
 
 
 	if(n2=="0" && /^[0\.]+$/.test(r2))
@@ -103,42 +109,49 @@ function advdiv(n1, n2, minstr, decstr, rstr1, rstr2) {
 	n2i = parseInt(n2);
 	n1s = n1.split("");
 	n1s1 = n1.split(".")[0].split("");
+
 	for(x = 0; x < n1s1.length; x++) {
 		d = Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s1[x])) / n2i);
 		res+= d.toString();
 		carry = (parseInt(times10(carry.toString())) + parseInt(n1s1[x])) - n2i * d;
 	};
+
 	if(res=="") {
 		res = "0";
 		x++;
 	};
+
 	res+= ".";
 	if(n1s.indexOf(".") < 0)
 		n1s.push(".");
-	for(x++; x==x; x++) {
+
+	for(x++; ; x++) {
 		if(x >= n1s.length) {
 			rcount++;
 			over = true;
 			n1s.push(parseInt(r1.toString().split('')[(rcount) % r1.toString().length]));
 		};
+
 		newcarry = (parseInt(times10(carry.toString())) + parseInt(n1s[x])) - n2i * Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[x])) / n2i);
+
 		if(over) {
 			if(newcarry==0 && r1==0) {
 				res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[x])) / n2i).toString();
-				return sign+res.replace(/^0+|0$/gm, "").replace(/^\./, "0.").replace(/\.$/, "").replace(".", decstr);
+				return sign+res.replace(/^0+|0$/g, "").replace(/^\./, "0.").replace(/\.$/, "").replace(".", decstr);
 			};
 			for(y = 0; y < carries.length; y++) {
 				if(over && carries[y]==newcarry && (y % r1.toString().length)==((rcount + 1) % r1.toString().length)) {
 					res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[x])) / n2i).toString();
-					result = sign + ((res.slice(0, x - rcount + y)+"["+res.slice(x - rcount + y)+"]").replace(/^0+/gm, "").replace(/^\./, "0."));
+					result = ((res.slice(0, x - rcount + y)+"["+res.slice(x - rcount + y)+"]").replace(/^0+/g, "").replace(/^\./, "0."));
 					if(result[result.indexOf("[") - 1]==result[result.indexOf("]") - 1])
 						result = result.slice(0, result.indexOf("[") - 1)+"["+result[result.indexOf("[") - 1]+result.slice(result.indexOf("[") + 1, result.indexOf("]") - 1)+"]";
 					if(result.indexOf("]")==result.indexOf("[") + 3 && result[result.indexOf("[") + 1]==result[result.indexOf("[") + 2])
 						result = result.slice(0, result.indexOf("[") + 2)+"]";
-					return result.replace(".", decstr).replace("[", rstr1).replace("]", rstr2);
+					return sign+result.replace(/[.[\]]/g, m => (m[0]=="." ? decstr : (m[0]=="[" ? rstr1 : rstr2)));
 				};
 			};
 		};
+
 		res+= Math.floor((parseInt(times10(carry.toString())) + parseInt(n1s[x])) / n2i).toString();
 		if(over)
 			carries.push(carry);

@@ -5,7 +5,7 @@
 
 Use this code to include the library:
 
-  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division-js@2.0/AdvDiv.min.js" type="text/javascript" integrity="sha384-V0RdxveNPPBfIo4374oMkSjSkDBFh29wOCfIATs+/0CetZk8Bsr9rVZYNF3hedi8" crossorigin="anonymous"></script> </code>
+  <code><script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division-js@1.2/AdvDiv.min.js" type="text/javascript" integrity="sha384-V0RdxveNPPBfIo4374oMkSjSkDBFh29wOCfIATs+/0CetZk8Bsr9rVZYNF3hedi8" crossorigin="anonymous"></script> </code>
 
 Syntax:
 <code>advdiv(n1, n2, minstr, decstr, rstr1, rstr2)</code>

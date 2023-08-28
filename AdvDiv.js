@@ -91,8 +91,8 @@ function advdiv(n1, n2, minstr, decstr, rstr1, rstr2) {
 		if(nstring.indexOf(".") > -1 && nstring.indexOf(".")==nstring.length - 2)
 			return nstring.replace(".", "");
 		if(nstring.indexOf(".") > -1)
-			return nstring.split(".")[0] + nstring.split(".")[1].split("")[0] + "." + nstring.split(".")[1].slice(1);
-		return nstring + "0";
+			return nstring.split(".")[0]+nstring.split(".")[1].split("")[0]+"."+nstring.split(".")[1].slice(1);
+		return nstring+"0";
 	};
 
 	while(n2.indexOf(".") > -1) {
